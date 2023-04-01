@@ -390,6 +390,6 @@ class Model {
 #include "api/exceptions.h"
 #include "api/model.h"
 #include "api/prediction.h"
-#include "api/version.h"
+//#include "api/version.h"
 #endif
 
