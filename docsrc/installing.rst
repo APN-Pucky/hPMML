@@ -8,7 +8,7 @@ Linux / Mac
 
 .. code-block:: bash
 
-    git clone https://github.com/AmadeusITGroup/cPMML.git && cd cPMML && ./install.sh
+    git clone https://github.com/AmadeusITGroup/hPMML.git && cd hPMML && ./install.sh
 
 **Usage**
 
@@ -17,16 +17,16 @@ Linux / Mac
     // your_program.cc
 
     #include <iostream>
-    #include "cPMML.h"
+    #include "hPMML.h"
 
     int main() {
-        std::cout << "cPMML version: " << cpmml::version << std::endl;
+        std::cout << "hPMML version: " << hpmml::version << std::endl;
         return 0;
     }
 
 .. code-block:: bash
 
-    g++ your_program.cc -lcPMML
+    g++ your_program.cc -lhPMML
 
 **Requirements**
 
@@ -40,9 +40,9 @@ Windows
 
 .. code-block:: bat
 
-    git clone https://github.com/AmadeusITGroup/cPMML.git && cd cPMML && install.bat
+    git clone https://github.com/AmadeusITGroup/hPMML.git && cd hPMML && install.bat
 
-The compiled library files will be placed under cpmml/cpmml_win
+The compiled library files will be placed under hpmml/hpmml_win
 
 **Usage**
 
@@ -51,20 +51,20 @@ The compiled library files will be placed under cpmml/cpmml_win
     // your_program.cc
 
     #include <iostream>
-    #include "cPMML.h"
+    #include "hPMML.h"
 
     int main() {
-        std::cout << "cPMML version: " << cpmml::version << std::endl;
+        std::cout << "hPMML version: " << hpmml::version << std::endl;
         return 0;
     }
 
-Supposing you cloned and built cPMML under some path like *C:\\Users\\YourUser\\cpmml*.
+Supposing you cloned and built hPMML under some path like *C:\\Users\\YourUser\\hpmml*.
 
 
 .. code-block:: bat
 
-    copy C:\Users\YourUser\cpmml\cpmml_win\* .
-    g++ your_program.cc -L. -lcPMML
+    copy C:\Users\YourUser\hpmml\hpmml_win\* .
+    g++ your_program.cc -L. -lhPMML
 
 **Requirements**
 

@@ -42,7 +42,7 @@ class Feature {
 #endif
 
   inline const Value &cvalue() const {
-    if (value.missing) throw cpmml::MissingValueException("missing value");
+    if (value.missing) throw hpmml::MissingValueException("missing value");
 
     return value;
   }

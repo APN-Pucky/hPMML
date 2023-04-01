@@ -44,7 +44,7 @@ class PredicateType {
     try {
       return predicatetype_converter.at(to_lower(predicate_type));
     } catch (const std::out_of_range &exception) {
-      throw cpmml::ParsingException("unsupported predicate type: " + predicate_type);
+      throw hpmml::ParsingException("unsupported predicate type: " + predicate_type);
     }
   }
 

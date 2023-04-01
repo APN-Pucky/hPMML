@@ -88,7 +88,7 @@ class XmlNode {
     std::vector<XmlNode> result;
 
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(child_name.c_str()); child; child = child->next_sibling())
       if (child && child->name() == child_name) result.push_back(XmlNode(child));
@@ -100,7 +100,7 @@ class XmlNode {
     std::vector<XmlNode> result;
 
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(); child; child = child->next_sibling())
       result.push_back(XmlNode(child));
@@ -110,7 +110,7 @@ class XmlNode {
 
   XmlNode get_child_bypattern(const std::string &pattern) const {
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(); child; child = child->next_sibling()) {
       XmlNode child_node(child);
@@ -125,7 +125,7 @@ class XmlNode {
 
   XmlNode get_child_bylist(const std::unordered_set<std::string> &list) const {
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(); child; child = child->next_sibling()) {
       XmlNode child_node(child);
@@ -140,7 +140,7 @@ class XmlNode {
 
   bool exists_child_bylist(const std::unordered_set<std::string> &list) const {
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
     if (node->first_node() == nullptr) return false;
 
     for (rapidxml::xml_node<> *child = node->first_node(); child; child = child->next_sibling()) {
@@ -158,7 +158,7 @@ class XmlNode {
     std::vector<XmlNode> result;
 
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(); child; child = child->next_sibling()) {
       XmlNode child_node(child);
@@ -173,7 +173,7 @@ class XmlNode {
     std::vector<XmlNode> result;
 
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(child_name.c_str()); child; child = child->next_sibling())
       if (child != NULL && child->name() == child_name)
@@ -186,7 +186,7 @@ class XmlNode {
     std::vector<XmlNode> result;
 
     //        if(node->first_node(child_name.c_str()) == NULL) throw
-    //        cpmml::GenericException("No child found");
+    //        hpmml::GenericException("No child found");
 
     for (rapidxml::xml_node<> *child = node->first_node(); child; child = child->next_sibling()) {
       XmlNode child_node(child);

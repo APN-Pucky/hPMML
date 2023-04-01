@@ -115,7 +115,7 @@ class MiningField : public DataField {
   inline Value handle_invalid(const Value &value) const {
     switch (invalidvalue_treatmentmethod.value) {
       case InvalidValueTreatmentMethod::InvalidValueTreatmentMethodValue::RETURN_INVALID:
-        throw cpmml::InvalidValueException("Invalid value for field: " + name);
+        throw hpmml::InvalidValueException("Invalid value for field: " + name);
       case InvalidValueTreatmentMethod::InvalidValueTreatmentMethodValue::AS_MISSING:
         return handle_missing();
       default:

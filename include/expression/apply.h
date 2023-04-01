@@ -75,7 +75,7 @@ class Apply : public Expression {
           expression = std::make_shared<MapValues>(n, output_index, output_type, indexer);
           break;
         default:
-          throw cpmml::ParsingException("Expression " + expression_type.to_string() + " type not supported");
+          throw hpmml::ParsingException("Expression " + expression_type.to_string() + " type not supported");
       }
 
       for (const auto &input : expression->inputs) inputs.insert(input);
@@ -113,7 +113,7 @@ class Apply : public Expression {
       std::cout << e.what() << std::endl;
       switch (invalidValueTreatmentMethod.value) {
         case InvalidValueTreatmentMethod::InvalidValueTreatmentMethodValue::RETURN_INVALID:
-          throw cpmml::InvalidValueException("evaluating apply function");
+          throw hpmml::InvalidValueException("evaluating apply function");
         case InvalidValueTreatmentMethod::InvalidValueTreatmentMethodValue::AS_MISSING:
           if (exist_missingreplacement)
             return mapmissing_to;

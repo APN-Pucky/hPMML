@@ -58,7 +58,7 @@ class MiningFunction {
     try {
       return mining_function_converter.at(to_lower(mining_function));
     } catch (const std::out_of_range &exception) {
-      throw cpmml::ParsingException("unsupported mining function: " + mining_function);
+      throw hpmml::ParsingException("unsupported mining function: " + mining_function);
     }
   }
 

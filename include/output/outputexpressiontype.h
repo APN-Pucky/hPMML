@@ -71,7 +71,7 @@ class OutputExpressionType {
       case OutputExpressionTypeValue::PROBABILITY:
         return "probability";
       default:
-        throw cpmml::ParsingException("unrecognized expression type");
+        throw hpmml::ParsingException("unrecognized expression type");
     }
   }
 };

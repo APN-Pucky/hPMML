@@ -131,7 +131,7 @@ class Target {
             score.score = target_value.display_value;
             try {
               score.double_score = to_double(score.score);
-            } catch (const cpmml::ParsingException &e) {
+            } catch (const hpmml::ParsingException &e) {
               score.double_score = double_min();
             }
           }

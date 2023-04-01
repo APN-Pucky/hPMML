@@ -41,7 +41,7 @@ class Closure {
     try {
       return closure_converter.at(to_lower(to_lower(closure)));
     } catch (const std::out_of_range &exception) {
-      throw cpmml::ParsingException(closure + " not supported");
+      throw hpmml::ParsingException(closure + " not supported");
     }
   }
 

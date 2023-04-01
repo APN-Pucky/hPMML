@@ -9,7 +9,7 @@
 
 #include <cmath>
 
-#include "cPMML.h"
+#include "hPMML.h"
 #include "value.h"
 
 /**
@@ -94,7 +94,7 @@ class BuiltInFunction {  // inputs are mapped by position
     try {
       return builtinfunction_converter.at(to_lower(builtinfunction));
     } catch (const std::out_of_range &exception) {
-      throw cpmml::ParsingException(builtinfunction + " not supported");
+      throw hpmml::ParsingException(builtinfunction + " not supported");
     }
   }
 
@@ -170,12 +170,12 @@ class BuiltInFunction {  // inputs are mapped by position
         return replace;
 #endif
       default:
-        throw cpmml::ParsingException("unsupported function");
+        throw hpmml::ParsingException("unsupported function");
     }
   }
 
   inline Value operator()(const std::vector<Value> &input) const {
-    if (n_args != -1 && n_args != (int)input.size()) throw cpmml::InvalidValueException("Wrong number of inputs");
+    if (n_args != -1 && n_args != (int)input.size()) throw hpmml::InvalidValueException("Wrong number of inputs");
     return function(input);
   }
 

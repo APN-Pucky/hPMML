@@ -23,7 +23,7 @@
  * href="http://dmg.org/pmml/v4-4/GeneralStructure.html#xsdGroup_MODEL-ELEMENT">PMML
  * MODEL-ELEMENT</a>.
  *
- * Implementations of this class are the central element of cPMML and they are
+ * Implementations of this class are the central element of hPMML and they are
  * the ones actually producing the scoring.
  *
  * It contains:
@@ -121,7 +121,7 @@ class InternalModel {
         transformation_dictionary[derivedfield_name].prepare(internal_sample);
 
     if (!mining_schema.validate(internal_sample))
-      throw cpmml::InvalidValueException("Sample: " + to_string(sample) + "didn't pass input validation");
+      throw hpmml::InvalidValueException("Sample: " + to_string(sample) + "didn't pass input validation");
 
     std::unique_ptr<InternalScore> score = score_raw(internal_sample);
     target(*score);
@@ -140,7 +140,7 @@ class InternalModel {
         transformation_dictionary[derivedfield_name].prepare(internal_sample);
 
     if (!mining_schema.validate(internal_sample))
-      throw cpmml::InvalidValueException("Sample: " + to_string(sample) + "didn't pass input validation");
+      throw hpmml::InvalidValueException("Sample: " + to_string(sample) + "didn't pass input validation");
 
     return target(predict_raw(internal_sample));
   };
@@ -164,7 +164,7 @@ class InternalModel {
 
   static inline void check_scorable(const XmlNode &node) {
     if (node.exists_attribute("isScorable") && node.get_bool_attribute("isScorable") == false)
-      throw cpmml::ParsingException("The model is defined as non-scorable");
+      throw hpmml::ParsingException("The model is defined as non-scorable");
   }
 
   static inline bool add_local_transformations(const XmlNode &node, TransformationDictionary &transformation_dictionary,

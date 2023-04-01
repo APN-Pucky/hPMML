@@ -40,7 +40,7 @@ class ModelBuilder {
     else if (xmlNode.exists_child("TreeModel"))
       evaluator = std::make_unique<TreeEvaluator>(xmlNode);
     else
-      throw cpmml::ParsingException("unsupported model type");
+      throw hpmml::ParsingException("unsupported model type");
 
     document.clear();
 

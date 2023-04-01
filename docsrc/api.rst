@@ -6,31 +6,31 @@ API
 Model
 =====
 
-.. doxygenclass:: cpmml::Model
+.. doxygenclass:: hpmml::Model
     :members:
 
 ==========
 Prediction
 ==========
 
-.. doxygenclass:: cpmml::Prediction
+.. doxygenclass:: hpmml::Prediction
     :members:
 
 ======
 Errors
 ======
 
-.. doxygenclass:: cpmml::Exception
+.. doxygenclass:: hpmml::Exception
     :members:
 
-.. doxygenclass:: cpmml::MissingValueException
+.. doxygenclass:: hpmml::MissingValueException
     :members:
 
-.. doxygenclass:: cpmml::InvalidValueException
+.. doxygenclass:: hpmml::InvalidValueException
     :members:
 
-.. doxygenclass:: cpmml::MathException
+.. doxygenclass:: hpmml::MathException
     :members:
 
-.. doxygenclass:: cpmml::ParsingException
+.. doxygenclass:: hpmml::ParsingException
     :members:

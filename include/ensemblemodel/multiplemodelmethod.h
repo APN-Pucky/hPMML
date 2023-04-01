@@ -70,7 +70,7 @@ class MultipleModelMethod {
     try {
       return multiplemodelmethod_converter.at(::to_lower(multiplemodelmethod));
     } catch (const std::out_of_range &e) {
-      throw cpmml::ParsingException(multiplemodelmethod + " not supported");
+      throw hpmml::ParsingException(multiplemodelmethod + " not supported");
     }
   }
 
@@ -96,7 +96,7 @@ class MultipleModelMethod {
         return model_chain;
     }
 
-    throw cpmml::ParsingException(multiplemodelmethod + " not supported");
+    throw hpmml::ParsingException(multiplemodelmethod + " not supported");
   }
 
 #ifndef MULTITHREADING

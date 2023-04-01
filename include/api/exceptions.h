@@ -4,9 +4,9 @@
  * Author: Paolo Iannino
  *******************************************************************************/
 
-#include "../cPMML.h"
+#include "../hPMML.h"
 
-namespace cpmml {
+namespace hpmml {
 inline Exception::Exception(const std::string &message) : message(message) {}
 
 inline const char *Exception::what() const noexcept { return (message).c_str(); }
@@ -18,4 +18,4 @@ inline InvalidValueException::InvalidValueException(const std::string &message) 
 inline MathException::MathException(const std::string &message) : Exception(message) {}
 
 inline ParsingException::ParsingException(const std::string &message) : Exception(message) {}
-}  // namespace cpmml
+}  // namespace hpmml

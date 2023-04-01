@@ -19,7 +19,7 @@
  *
  * Class implementing a simple csv file reader.
  *
- * Though it is used for benchmarking and testing of cPMML, it is not part of
+ * Though it is used for benchmarking and testing of hPMML, it is not part of
  * its core or of its API, since it's best-effort and not directly involved in
  * model scoring.
  */

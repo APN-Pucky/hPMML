@@ -72,10 +72,10 @@ class Predicate {
           return operator()(other[feature].value);
         } catch (const std::out_of_range &exception) {
 #ifdef DEBUG
-          throw cpmml::GenericException("feature \"" + other[feature].name +
+          throw hpmml::GenericException("feature \"" + other[feature].name +
                                         "\" not found in sample: " + other.to_string());
 #else
-          throw cpmml::MissingValueException("missing feature in sample");
+          throw hpmml::MissingValueException("missing feature in sample");
 #endif
         }
     }

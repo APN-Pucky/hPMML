@@ -8,7 +8,7 @@ email, or any other method with the owners of this repository before making a ch
 ### Licensing of contributed material
 
 Keep in mind as you contribute, that code, docs and other material submitted to the 
-*cPMML* project are considered licensed under the terms of the [MIT license](LICENSE.md).
+*hPMML* project are considered licensed under the terms of the [MIT license](LICENSE.md).
 
 ### Version control branching
 
@@ -23,7 +23,7 @@ Keep in mind as you contribute, that code, docs and other material submitted to 
 ### Code formatting
 
 * **Follow the style you see used in the primary repository**
-* For indentation, *cPMML* follows a slightly modified version of 
+* For indentation, *hPMML* follows a slightly modified version of 
   [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
   **The utility script [format.sh](format.sh) has been included to help you enforce the requested style**.
   
@@ -36,10 +36,10 @@ any new error for:
 
 ### Multithreading
 
-*cPMML* provides parallel execution for scoring of ensemble models (eg. Random Forest Model, Gradient Boosted Trees, etc.).
+*hPMML* provides parallel execution for scoring of ensemble models (eg. Random Forest Model, Gradient Boosted Trees, etc.).
 
 Even though multithreaded parallelization is included by default, it must always be considered as an option for the scoring.
-In other words, when contributing to *cPMML*, sequential execution must be provided before implementing an optimized version using
+In other words, when contributing to *hPMML*, sequential execution must be provided before implementing an optimized version using
 multithreaded parallelization.
   
 ### Documentation
@@ -74,7 +74,7 @@ In particular:
      
 ### Benchmarks
 
-*cPMML* focuses on high performance, both in terms of memory and scoring time.
+*hPMML* focuses on high performance, both in terms of memory and scoring time.
 
 For this reason maintainers may reject your contribution in case it has too big impact on performance.
 
@@ -103,7 +103,7 @@ Before submitting an issue, please do the following:
 
 * **Search the project's issue tracker** to make sure it's not a known
   issue.
-* If you don't find a pre-existing issue, consider **checking with *cPMML* repo admins**
+* If you don't find a pre-existing issue, consider **checking with *hPMML* repo admins**
  in case the problem is non-issue-related.
 
 ### What to put in your issue report

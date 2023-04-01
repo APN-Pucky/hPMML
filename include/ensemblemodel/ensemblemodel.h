@@ -75,7 +75,7 @@ class EnsembleModel : public InternalModel {
       }
     }
 
-    throw cpmml::ParsingException("Type of model not supported in ensembles");
+    throw hpmml::ParsingException("Type of model not supported in ensembles");
   }
 };
 

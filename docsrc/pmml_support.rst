@@ -2,7 +2,7 @@
 PMML Support
 ************
 
-Here are listed the PMML v4 elements currently supported by cPMML.
+Here are listed the PMML v4 elements currently supported by hPMML.
 
 =================
 General Structure
@@ -17,7 +17,7 @@ General Structure
 - Target
 - Output
 
-Note that Header and MiningBuildTask are ignored from cPMML
+Note that Header and MiningBuildTask are ignored from hPMML
 since they represents model metadata not useful for scoring.
 
 ==========

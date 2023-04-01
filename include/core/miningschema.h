@@ -82,7 +82,7 @@ class MiningSchema {
 
         } catch (const std::out_of_range &exception) {  // field is missing
           sample.change_value(miningfield.index, miningfield.handle_missing());
-        } catch (const cpmml::Exception &exception) {  // field cannot be converted to double
+        } catch (const hpmml::Exception &exception) {  // field cannot be converted to double
                                                        // because is missing
           sample.change_value(miningfield.index, miningfield.handle_missing());
         }

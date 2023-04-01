@@ -45,7 +45,7 @@ class OutputField {
       if (indexer->contains(model_target))
         datatype = indexer->get_type(model_target);
       else
-        throw cpmml::ParsingException("Impossible to determine datatype for output: " + name);
+        throw hpmml::ParsingException("Impossible to determine datatype for output: " + name);
     } else
       datatype = node.get_attribute("dataType");
 

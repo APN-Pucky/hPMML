@@ -1,12 +1,12 @@
-![cPMML](./docsrc/img/logo.png)
+![hPMML](./docsrc/img/logo.png)
 
-![Travis (.org)](https://img.shields.io/travis/AmadeusITGroup/cPMML?style=flat-square)
-![GitHub](https://img.shields.io/github/license/AmadeusITGroup/cPMML?style=flat-square)
+![Travis (.org)](https://img.shields.io/travis/AmadeusITGroup/hPMML?style=flat-square)
+![GitHub](https://img.shields.io/github/license/AmadeusITGroup/hPMML?style=flat-square)
 ![](https://img.shields.io/badge/STD-C%2B%2B11-blue?style=flat-square)
 
 # High-Performance PMML Scoring
 
-*cPMML* is C++ library for scoring machine learning models serialized with the Predictive Model Markup Language ([PMML](http://dmg.org/pmml/v4-4/GeneralStructure.html)).
+*hPMML* is C++ library for scoring machine learning models serialized with the Predictive Model Markup Language ([PMML](http://dmg.org/pmml/v4-4/GeneralStructure.html)).
 It exposes a minimalist and user-friendly API and it targets high performance in model scoring, keeping a predictable and minimal memory footprint.
 
 Currently, the following PMML elements are supported:
@@ -18,9 +18,9 @@ Currently, the following PMML elements are supported:
 ## Getting Started
 
 ```cpp
-#include "cPMML.h"
+#include "hPMML.h"
 
-cpmml::Model model("IrisTree.xml");
+hpmml::Model model("IrisTree.xml");
 std::unordered_map<std::string, std::string> sample = {
 	{"sepal_length","6.6"},
 	{"sepal_width","2.9"},
@@ -34,7 +34,7 @@ std::cout << model.predict(sample); // "Iris-versicolor"
 ## Set-up 
 #### Linux / Mac
 ```
-git clone https://github.com/AmadeusITGroup/cPMML.git && cd cPMML && ./install.sh
+git clone https://github.com/AmadeusITGroup/hPMML.git && cd hPMML && ./install.sh
 ```
 ##### Prerequisites
 * Git
@@ -44,7 +44,7 @@ git clone https://github.com/AmadeusITGroup/cPMML.git && cd cPMML && ./install.s
 
 #### Windows
 ```
-git clone https://github.com/AmadeusITGroup/cPMML.git && cd cPMML && install.bat
+git clone https://github.com/AmadeusITGroup/hPMML.git && cd hPMML && install.bat
 ```
 ##### Prerequisites
 * Git
@@ -52,7 +52,7 @@ git clone https://github.com/AmadeusITGroup/cPMML.git && cd cPMML && install.bat
 * MinGW-W64 supporting C++11
 
 ## Documentation
-Please refer to the [official documentation](https://amadeusitgroup.github.io/cPMML/) for further details.
+Please refer to the [official documentation](https://amadeusitgroup.github.io/hPMML/) for further details.
 
 ## Contributing
 
@@ -62,7 +62,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to submit your
 
 * **Paolo Iannino** - *Initial work* - [Paolo](https://github.com/piannino)
 
-See also the list of [contributors](https://github.com/AmadeusITGroup/cPMML/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/AmadeusITGroup/hPMML/contributors) who participated in this project.
 
 ## License
 

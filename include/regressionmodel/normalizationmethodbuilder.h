@@ -39,7 +39,7 @@ class SingleNormalizationMethodBuilder {
       case NormalizationMethodType::NormalizationMethodTypeValue::CAUCHIT:
         return single_cauchit;
       default:
-        throw cpmml::ParsingException("Incorrect normalization method");
+        throw hpmml::ParsingException("Incorrect normalization method");
     }
   }
 };
@@ -72,7 +72,7 @@ class MultiNormalizationMethodBuilder {
       case NormalizationMethodType::NormalizationMethodTypeValue::CAUCHIT:
         return categorical_cauchit;
       default:
-        throw cpmml::ParsingException("Incorrect normalization method");
+        throw hpmml::ParsingException("Incorrect normalization method");
     }
   }
 };

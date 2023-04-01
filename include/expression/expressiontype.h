@@ -63,7 +63,7 @@ class ExpressionType {
     try {
       return expressiontype_converter.at(to_lower(expressiontype));
     } catch (const std::out_of_range &exception) {
-      throw cpmml::ParsingException("unrecognized expression type " +
+      throw hpmml::ParsingException("unrecognized expression type " +
                                     expressiontype);  // cannot happen (due to how the expression type is
                                                       // retrieved (XML element name)
     }
@@ -90,7 +90,7 @@ class ExpressionType {
         //      case ExpressionTypeValue::AGGREGATE:
         //        return "Aggregate";
       default:
-        throw cpmml::ParsingException("unrecognized expression type");
+        throw hpmml::ParsingException("unrecognized expression type");
     }
   }
 };

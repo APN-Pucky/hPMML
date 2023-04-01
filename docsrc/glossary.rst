@@ -10,7 +10,7 @@ Here are collected some brief definitions useful throughout the documentation.
         Machine learning model.
     Model Loading
         Process taking as input a file containing a model serialized with PMML standard and producing as output
-        the corresponding *cPMML* in-memory object.
+        the corresponding *hPMML* in-memory object.
     Model Scoring
         Process taking as input a model and a sample and producing as output a prediction.
     Prediction

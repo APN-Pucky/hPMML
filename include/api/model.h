@@ -4,14 +4,14 @@
  * Author: Paolo Iannino
  *******************************************************************************/
 
-#include "../cPMML.h"
+#include "../hPMML.h"
 #include "../core/internal_evaluator.h"
 #include "../core/internal_score.h"
 #include "../core/modelbuilder.h"
 #include "../utils/csvreader.h"
 #include "../utils/utils.h"
 
-namespace cpmml {
+namespace hpmml {
 inline Model::Model(const std::string &model_filepath) : evaluator(ModelBuilder::build(model_filepath)) {}
 
 inline bool Model::validate(const std::unordered_map<std::string, std::string> &sample) const {
@@ -25,4 +25,4 @@ inline Prediction Model::score(const std::unordered_map<std::string, std::string
 inline std::string Model::predict(const std::unordered_map<std::string, std::string> &sample) const {
   return evaluator->predict(sample);
 }
-}  // namespace cpmml
+}  // namespace hpmml

@@ -49,7 +49,7 @@ class PredictorTerm {
     for (const auto &field : fields) {
       const Value &value = field.value(sample);
       if (value.missing)
-        throw cpmml::MissingValueException("missing value index: " + std::to_string(field.index) +
+        throw hpmml::MissingValueException("missing value index: " + std::to_string(field.index) +
                                            " name: " + field.field_name);
       else
         partial *= value.value;

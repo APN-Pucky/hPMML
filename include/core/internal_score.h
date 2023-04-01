@@ -36,7 +36,7 @@ class InternalScore {
   explicit InternalScore(const std::string &score) : empty(false), score(score) {
     try {
       double_score = ::to_double(score);
-    } catch (const cpmml::ParsingException &exception) {
+    } catch (const hpmml::ParsingException &exception) {
       double_score = double_min();
     }
   }
@@ -48,7 +48,7 @@ class InternalScore {
       : empty(false), score(score), probabilities(probabilities) {
     try {
       double_score = ::to_double(score);
-    } catch (const cpmml::ParsingException &exception) {
+    } catch (const hpmml::ParsingException &exception) {
       double_score = double_min();
     }
   }

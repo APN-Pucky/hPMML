@@ -78,7 +78,7 @@ class RegressionModel : public InternalModel {
         return std::make_unique<RegressionScore>(get_class(scores), regressed_value, classes, scores);
     }
 
-    throw cpmml::ParsingException(mining_function.to_string() + "not available in RegressionModel");
+    throw hpmml::ParsingException(mining_function.to_string() + "not available in RegressionModel");
   }
 
   inline std::string predict_raw(const Sample &sample) const override {
@@ -89,7 +89,7 @@ class RegressionModel : public InternalModel {
         return get_class(classification_normalization(get_scores(sample)));
     }
 
-    throw cpmml::ParsingException(mining_function.to_string() + "not available in RegressionModel");
+    throw hpmml::ParsingException(mining_function.to_string() + "not available in RegressionModel");
   }
 
   inline std::vector<double> get_scores(const Sample &sample) const {

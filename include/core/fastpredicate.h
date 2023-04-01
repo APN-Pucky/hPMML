@@ -78,7 +78,7 @@ inline bool surrogate(const Sample &other, const std::vector<std::function<bool(
   for (const auto &predicate : predicates) {
     try {
       return predicate(other);
-    } catch (const cpmml::Exception &e) {
+    } catch (const hpmml::Exception &e) {
     }
   }
 

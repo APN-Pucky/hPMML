@@ -68,7 +68,7 @@ inline std::vector<double> categorical_none(const std::vector<double> &values) {
 
 inline std::vector<double> categorical_base(const std::vector<double> &values, std::function<double(double)> function,
                                             const std::string &function_name) {
-  if (values.size() != 2) throw cpmml::MathException(function_name + " must have exactly 2 inputs");
+  if (values.size() != 2) throw hpmml::MathException(function_name + " must have exactly 2 inputs");
 
   std::vector<double> result;
   result.push_back(function(values[0]));
@@ -94,7 +94,7 @@ inline std::vector<double> categorical_loglog(const std::vector<double> &values)
 }
 
 inline std::vector<double> categorical_cauchit(const std::vector<double> &values) {
-  if (values.size() != 2) throw cpmml::MathException("Cauchit must have exactly 2 inputs");
+  if (values.size() != 2) throw hpmml::MathException("Cauchit must have exactly 2 inputs");
 
   std::vector<double> result;
   result.push_back(cauchit(values[0]));

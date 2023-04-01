@@ -17,7 +17,7 @@
  * @class Indexer
  * Class used to index all features available in the PMML file.
  *
- * In cPMML features are indexed to gain constant access time. This class keeps
+ * In hPMML features are indexed to gain constant access time. This class keeps
  * the associations name-index, along with the type of the feature.
  */
 class Indexer {

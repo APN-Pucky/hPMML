@@ -39,9 +39,9 @@ inline static double to_double(const std::string &value) {
   try {
     return std::stod(value);
   } catch (const std::invalid_argument &exception) {
-    throw cpmml::ParsingException(value + " cannot be converted to double (invalid argument)");
+    throw hpmml::ParsingException(value + " cannot be converted to double (invalid argument)");
   } catch (const std::out_of_range &exception) {
-    throw cpmml::ParsingException(value + " cannot be converted to double (overflow)");
+    throw hpmml::ParsingException(value + " cannot be converted to double (overflow)");
   }
 }
 
@@ -229,7 +229,7 @@ static inline bool file_exists(const std::string &name) {
 }
 
 static inline std::vector<char> read_file(const std::string &filepath) {
-  if (!file_exists(filepath)) throw cpmml::ParsingException("Input file " + filepath + " does not exist");
+  if (!file_exists(filepath)) throw hpmml::ParsingException("Input file " + filepath + " does not exist");
 
   //if (zipped) return read_zip(filepath);
 

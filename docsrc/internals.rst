@@ -2,15 +2,15 @@
 Internals
 *********
 
-It follows the documentation related to the internals of *cPMML*. Here you can find all *cPMML* classes not exposed in the public API.
+It follows the documentation related to the internals of *hPMML*. Here you can find all *hPMML* classes not exposed in the public API.
 
 ========================
-cPMML Driving Principles
+hPMML Driving Principles
 ========================
 
 Model Load and Model Scoring
 ----------------------------
-*cPMML* design is split around two phases:
+*hPMML* design is split around two phases:
 
     Model Loading
         The XML content is loaded from disk to memory and the corresponding c++ object is built.
@@ -19,13 +19,13 @@ Model Load and Model Scoring
 
 Visiting the XML
 ----------------
-*cPMML* defines one class for each PMML XML element. Once the XML is read, it is visited recursively and,
+*hPMML* defines one class for each PMML XML element. Once the XML is read, it is visited recursively and,
 for each XML node encountered, the corresponding object instance is constructed.
 
 Most of the computation takes place in this phase as **the idea is to precompute as much as possible
 in order to speed up scoring**.
 
-In general, any object part of a cpmml::Model is meant to be immutable. With the exception of the following classes:
+In general, any object part of a hpmml::Model is meant to be immutable. With the exception of the following classes:
 
     - *Sample*
     - *Feature*
@@ -53,7 +53,7 @@ This fields can be defined in:
         It just contains the reference to which fields, among the previously defined ones,
         are actually used by the model.
 
-In *cPMML* all fields are indexed through the class *Indexer*.
+In *hPMML* all fields are indexed through the class *Indexer*.
 This is done to allow accessing the fields through an integer index in order to improve performance. \
 A shared instance of Indexer is used to share the associations integer→fieldname.
 
