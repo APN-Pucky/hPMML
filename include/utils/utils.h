@@ -19,9 +19,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-#include "options.h"
+#include <limits>
 
-#include "miniz/miniz.h"
+#include "options.h"
 
 /**
  * @defgroup Utils
@@ -223,41 +223,15 @@ static inline std::vector<char> read_xml(const std::string &filepath) {
   return data;
 }
 
-static inline void mz_reader_error(mz_zip_archive *zip_archive, const std::string &message) {
-  mz_zip_reader_end(zip_archive);
-  throw cpmml::ParsingException("unzip - err: " + message);
-}
-
-static inline std::vector<char> read_zip(const std::string &filepath) {
-  mz_zip_archive zip_archive;
-  size_t inflated_size;
-  void *p;
-
-  memset(&zip_archive, 0, sizeof(zip_archive));
-  if (mz_zip_reader_init_file(&zip_archive, filepath.c_str(), 0) != MZ_STREAM_END)
-    throw cpmml::ParsingException("unzip - err: reading archive");
-  if (mz_zip_reader_get_num_files(&zip_archive) < 1) mz_reader_error(&zip_archive, "no file in archive");
-  if (mz_zip_reader_is_file_a_directory(&zip_archive, 0)) mz_reader_error(&zip_archive, "directory in archive");
-  if ((p = mz_zip_reader_extract_to_heap(&zip_archive, 0, &inflated_size, 0)) == NULL)
-    mz_reader_error(&zip_archive, "decompressing");
-  std::vector<char> data((char *)p, (char *)p + inflated_size);
-  data.push_back('\0');
-
-  mz_free(p);
-  mz_zip_reader_end(&zip_archive);
-
-  return data;
-}
-
 static inline bool file_exists(const std::string &name) {
   std::ifstream f(name.c_str());
   return f.good();
 }
 
-static inline std::vector<char> read_file(const std::string &filepath, const bool zipped) {
+static inline std::vector<char> read_file(const std::string &filepath) {
   if (!file_exists(filepath)) throw cpmml::ParsingException("Input file " + filepath + " does not exist");
 
-  if (zipped) return read_zip(filepath);
+  //if (zipped) return read_zip(filepath);
 
   return read_xml(filepath);
 }
@@ -306,9 +280,9 @@ inline std::string format_int(const int &value) {
   return res_str;
 }
 
-template <typename T, typename... Args>
-inline std::unique_ptr<T> make_unique(Args &&... args) {
-  return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-}
+//template <typename T, typename... Args>
+//inline std::unique_ptr<T> make_unique(Args &&... args) {
+//  return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+//}
 //}@
 #endif
