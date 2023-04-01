@@ -7,5 +7,5 @@
 #include "cPMML.h"
 
 namespace cpmml {
-const std::string version = CPMML_VERSION;
+const std::string version = "0.0";
 }

@@ -49,7 +49,7 @@ class TreeModel : public InternalModel {
         root_node(Node(node.get_child("Node"), true, PredicateBuilder(indexer), target_field.datatype)){};
 
   inline std::unique_ptr<InternalScore> score_raw(const Sample &sample) const override {
-    return make_unique<TreeScore>(scoreR(sample, root_node));
+    return std::make_unique<TreeScore>(scoreR(sample, root_node));
   };
 
   inline std::string predict_raw(const Sample &sample) const override {

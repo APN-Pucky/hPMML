@@ -34,11 +34,11 @@ class ModelBuilder {
     XmlNode xmlNode(document.first_node("PMML"));
     std::unique_ptr<InternalEvaluator> evaluator;
     if (xmlNode.exists_child("MiningModel"))
-      evaluator = make_unique<EnsembleEvaluator>(xmlNode);
+      evaluator = std::make_unique<EnsembleEvaluator>(xmlNode);
     else if (xmlNode.exists_child("RegressionModel"))
-      evaluator = make_unique<RegressionEvaluator>(xmlNode);
+      evaluator = std::make_unique<RegressionEvaluator>(xmlNode);
     else if (xmlNode.exists_child("TreeModel"))
-      evaluator = make_unique<TreeEvaluator>(xmlNode);
+      evaluator = std::make_unique<TreeEvaluator>(xmlNode);
     else
       throw cpmml::ParsingException("unsupported model type");
 

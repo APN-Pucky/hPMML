@@ -54,7 +54,7 @@ class Node {
         leaf(children.size() == 0),
         score(simple_score, target_datatype, node.get_childs("ScoreDistribution")){};
 
-  constexpr bool match(const Sample &sample) const { return predicate(sample); }
+  inline bool match(const Sample &sample) const { return predicate(sample); }
 
   static std::vector<Node> to_nodes(const std::vector<XmlNode> &nodes, const PredicateBuilder &predicateBuilder,
                                     const DataType &target_datatype) {
