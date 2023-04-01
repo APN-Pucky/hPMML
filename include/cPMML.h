@@ -7,6 +7,7 @@
 #ifndef CPMML_CPMML_H
 #define CPMML_CPMML_H
 
+
 #include <exception>
 #include <memory>
 #include <string>
@@ -386,4 +387,9 @@ class Model {
 };
 }  // namespace cpmml
 
+#include "api/exceptions.h"
+#include "api/model.h"
+#include "api/prediction.h"
+#include "api/version.h"
 #endif
+

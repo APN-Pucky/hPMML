@@ -4,8 +4,8 @@
  * Author: Paolo Iannino
  *******************************************************************************/
 
-#include "cPMML.h"
-#include "core/internal_score.h"
+#include "../cPMML.h"
+#include "../core/internal_score.h"
 
 namespace cpmml {
 inline Prediction::Prediction(const std::shared_ptr<InternalScore>& score) : score(score) {}

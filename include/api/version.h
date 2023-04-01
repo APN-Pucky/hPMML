@@ -4,7 +4,7 @@
  * Author: Paolo Iannino
  *******************************************************************************/
 
-#include "cPMML.h"
+#include "../cPMML.h"
 
 namespace cpmml {
 const std::string version = "0.0";

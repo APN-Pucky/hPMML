@@ -4,12 +4,12 @@
  * Author: Paolo Iannino
  *******************************************************************************/
 
-#include "cPMML.h"
-#include "core/internal_evaluator.h"
-#include "core/internal_score.h"
-#include "core/modelbuilder.h"
-#include "utils/csvreader.h"
-#include "utils/utils.h"
+#include "../cPMML.h"
+#include "../core/internal_evaluator.h"
+#include "../core/internal_score.h"
+#include "../core/modelbuilder.h"
+#include "../utils/csvreader.h"
+#include "../utils/utils.h"
 
 namespace cpmml {
 inline Model::Model(const std::string &model_filepath) : evaluator(ModelBuilder::build(model_filepath)) {}

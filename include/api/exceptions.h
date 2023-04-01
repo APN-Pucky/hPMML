@@ -4,7 +4,7 @@
  * Author: Paolo Iannino
  *******************************************************************************/
 
-#include "cPMML.h"
+#include "../cPMML.h"
 
 namespace cpmml {
 inline Exception::Exception(const std::string &message) : message(message) {}
