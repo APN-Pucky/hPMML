@@ -29,260 +29,307 @@
  * Various utility functions, used also during model scoring.
  */
 //@{
-inline std::string to_lower(std::string value) {
-  std::transform(value.begin(), value.end(), value.begin(), ::tolower);
+inline std::string to_lower(std::string value)
+{
+    std::transform(value.begin(), value.end(), value.begin(), ::tolower);
 
-  return value;
+    return value;
 }
 
-inline static double to_double(const std::string &value) {
-  try {
-    return std::stod(value);
-  } catch (const std::invalid_argument &exception) {
-    throw hpmml::ParsingException(value + " cannot be converted to double (invalid argument)");
-  } catch (const std::out_of_range &exception) {
-    throw hpmml::ParsingException(value + " cannot be converted to double (overflow)");
-  }
-}
-
-template <class T>
-T parse_string(const std::string &value) {
-  std::istringstream is(to_lower(value));
-  T parsed_value;
-  is >> parsed_value;
-  return parsed_value;
-}
-
-template <class T>
-std::string to_string(const T &value) {
-  std::stringstream buffer;
-
-  buffer << value;
-
-  return buffer.str();
+inline static double to_double(const std::string &value)
+{
+    try
+    {
+        return std::stod(value);
+    }
+    catch (const std::invalid_argument &exception)
+    {
+        throw hpmml::ParsingException(value + " cannot be converted to double (invalid argument)");
+    }
+    catch (const std::out_of_range &exception)
+    {
+        throw hpmml::ParsingException(value + " cannot be converted to double (overflow)");
+    }
 }
 
 template <class T>
-std::string mkstring(const std::vector<T> &values, const std::string &separator = ",") {
-  std::stringstream buffer;
-
-  buffer << "[";
-  auto it = values.cbegin();
-  auto jt = it;
-  jt++;
-  for (; it != values.cend(); it++, jt++) buffer << *it << (jt == values.cend() ? "" : separator);
-
-  buffer << "]";
-
-  return buffer.str();
+T parse_string(const std::string &value)
+{
+    std::istringstream is(to_lower(value));
+    T parsed_value;
+    is >> parsed_value;
+    return parsed_value;
 }
 
 template <class T>
-std::string mkstring(const std::set<T> &values, const std::string &separator = ",") {
-  std::stringstream buffer;
+std::string to_string(const T &value)
+{
+    std::stringstream buffer;
 
-  buffer << "[";
-  auto it = values.cbegin();
-  auto jt = it;
-  jt++;
-  for (; it != values.cend(); it++, jt++) buffer << *it << (jt == values.cend() ? "" : separator);
+    buffer << value;
 
-  buffer << "]";
+    return buffer.str();
+}
 
-  return buffer.str();
+template <class T>
+std::string mkstring(const std::vector<T> &values, const std::string &separator = ",")
+{
+    std::stringstream buffer;
+
+    buffer << "[";
+    auto it = values.cbegin();
+    auto jt = it;
+    jt++;
+    for (; it != values.cend(); it++, jt++)
+        buffer << *it << (jt == values.cend() ? "" : separator);
+
+    buffer << "]";
+
+    return buffer.str();
+}
+
+template <class T>
+std::string mkstring(const std::set<T> &values, const std::string &separator = ",")
+{
+    std::stringstream buffer;
+
+    buffer << "[";
+    auto it = values.cbegin();
+    auto jt = it;
+    jt++;
+    for (; it != values.cend(); it++, jt++)
+        buffer << *it << (jt == values.cend() ? "" : separator);
+
+    buffer << "]";
+
+    return buffer.str();
 }
 
 template <class T, class H>
-std::string mkstring(const std::unordered_set<T, H> &values, const std::string &separator = ",") {
-  std::stringstream buffer;
+std::string mkstring(const std::unordered_set<T, H> &values, const std::string &separator = ",")
+{
+    std::stringstream buffer;
 
-  buffer << "[";
-  auto it = values.cbegin();
-  auto jt = it;
-  jt++;
-  for (; it != values.cend(); it++, jt++) buffer << *it << (jt == values.cend() ? "" : separator);
+    buffer << "[";
+    auto it = values.cbegin();
+    auto jt = it;
+    jt++;
+    for (; it != values.cend(); it++, jt++)
+        buffer << *it << (jt == values.cend() ? "" : separator);
 
-  buffer << "]";
+    buffer << "]";
 
-  return buffer.str();
+    return buffer.str();
 }
 
 template <class K, class V, class H>
-std::string to_string(const std::unordered_map<K, V, H> &values, const std::string &separator = ",") {
-  std::stringstream buffer;
+std::string to_string(const std::unordered_map<K, V, H> &values, const std::string &separator = ",")
+{
+    std::stringstream buffer;
 
-  buffer << "{";
-  auto it = values.cbegin();
-  size_t j = 1;
-  for (; it != values.cend(); it++, j++)
-    buffer << "\"" << it->first << "\":\"" << it->second << (j == values.size() ? "\"" : "\"" + separator);
+    buffer << "{";
+    auto it = values.cbegin();
+    size_t j = 1;
+    for (; it != values.cend(); it++, j++)
+        buffer << "\"" << it->first << "\":\"" << it->second << (j == values.size() ? "\"" : "\"" + separator);
 
-  buffer << "}";
+    buffer << "}";
 
-  return buffer.str();
+    return buffer.str();
 }
 
 template <class T, class U>
-std::string mkstring(const std::vector<std::pair<T, U>> &values, const std::string &separator = ",") {
-  std::stringstream buffer;
+std::string mkstring(const std::vector<std::pair<T, U>> &values, const std::string &separator = ",")
+{
+    std::stringstream buffer;
 
-  buffer << "[";
-  auto it = values.cbegin();
-  auto jt = it;
-  jt++;
-  for (; it != values.cend(); it++, jt++) buffer << to_string<T, U>(*it) << (jt == values.cend() ? "" : separator);
+    buffer << "[";
+    auto it = values.cbegin();
+    auto jt = it;
+    jt++;
+    for (; it != values.cend(); it++, jt++)
+        buffer << to_string<T, U>(*it) << (jt == values.cend() ? "" : separator);
 
-  buffer << "]";
+    buffer << "]";
 
-  return buffer.str();
+    return buffer.str();
 }
 
 template <class T, class V>
-std::string to_string(const std::pair<T, V> &value) {
-  std::stringstream buffer;
+std::string to_string(const std::pair<T, V> &value)
+{
+    std::stringstream buffer;
 
-  buffer << "{";
-  buffer << "\"" << value.first << "\":\"" << value.second << "\"";
-  buffer << "}";
+    buffer << "{";
+    buffer << "\"" << value.first << "\":\"" << value.second << "\"";
+    buffer << "}";
 
-  return buffer.str();
+    return buffer.str();
 }
 
 template <class K, class V>
-std::vector<V> to_values(const std::unordered_map<K, V> &values) {
-  std::vector<V> result;
-  result.reserve(values.size());
-  for (const auto &value : values) result.push_back(value.second);
+std::vector<V> to_values(const std::unordered_map<K, V> &values)
+{
+    std::vector<V> result;
+    result.reserve(values.size());
+    for (const auto &value : values)
+        result.push_back(value.second);
 
-  return result;
+    return result;
 }
 
 template <class K, class V>
-std::vector<V> to_values(const std::map<K, V> &values) {
-  std::vector<V> result;
-  result.reserve(values.size());
-  for (const auto &value : values) result.push_back(value.second);
+std::vector<V> to_values(const std::map<K, V> &values)
+{
+    std::vector<V> result;
+    result.reserve(values.size());
+    for (const auto &value : values)
+        result.push_back(value.second);
 
-  return result;
+    return result;
 }
 
 template <class K, class V>
-std::vector<K> to_keys(const std::unordered_map<K, V> &values) {
-  std::vector<K> result;
-  result.reserve(values.size());
-  for (const auto &value : values) result.push_back(value.first);
+std::vector<K> to_keys(const std::unordered_map<K, V> &values)
+{
+    std::vector<K> result;
+    result.reserve(values.size());
+    for (const auto &value : values)
+        result.push_back(value.first);
 
-  return result;
+    return result;
 }
 
-inline std::vector<std::string> split(std::string value, const std::string &separator) {
-  size_t pos = 0;
-  std::string token;
-  std::vector<std::string> tokens;
+inline std::vector<std::string> split(std::string value, const std::string &separator)
+{
+    size_t pos = 0;
+    std::string token;
+    std::vector<std::string> tokens;
 
-  while ((pos = value.find(separator)) != std::string::npos) {
-    token = value.substr(0, pos);
-    if (token.size() > 0) tokens.push_back(token);
-    value.erase(0, pos + separator.length());
-  }
+    while ((pos = value.find(separator)) != std::string::npos)
+    {
+        token = value.substr(0, pos);
+        if (token.size() > 0)
+            tokens.push_back(token);
+        value.erase(0, pos + separator.length());
+    }
 
-  tokens.push_back(value);
+    tokens.push_back(value);
 
-  return tokens;
+    return tokens;
 }
 
-inline std::string remove_all(std::string value, char to_remove) {
-  value.erase(std::remove(value.begin(), value.end(), to_remove), value.end());
+inline std::string remove_all(std::string value, char to_remove)
+{
+    value.erase(std::remove(value.begin(), value.end(), to_remove), value.end());
 
-  return value;
+    return value;
 }
 
 inline bool parse_boolstring(const std::string &value) { return value == "true"; }
 
 inline double double_min() { return std::numeric_limits<double>::min(); }
 
-static inline std::string &ltrim(std::string &s) {
-  s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
-  return s;
+// trim from start
+static inline std::string& ltrim(std::string &s)
+{
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch)
+                                    { return !std::isspace(ch); }));
+    return s;
 }
 
 // trim from end
-static inline std::string &rtrim(std::string &s) {
-  s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
-  return s;
+static inline std::string& rtrim(std::string &s)
+{
+    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch)
+                         { return !std::isspace(ch); })
+                .base(),
+            s.end());
+    return s;
 }
-
 // trim from both ends
 static inline std::string &trim(std::string &s) { return ltrim(rtrim(s)); }
 
-static inline std::vector<char> read_xml(const std::string &filepath) {
-  std::ifstream file(filepath);
-  std::vector<char> data((std::istreambuf_iterator<char>(file)), {});
-  data.push_back('\0');
+static inline std::vector<char> read_xml(const std::string &filepath)
+{
+    std::ifstream file(filepath);
+    std::vector<char> data((std::istreambuf_iterator<char>(file)), {});
+    data.push_back('\0');
 
-  return data;
+    return data;
 }
 
-static inline bool file_exists(const std::string &name) {
-  std::ifstream f(name.c_str());
-  return f.good();
+static inline bool file_exists(const std::string &name)
+{
+    std::ifstream f(name.c_str());
+    return f.good();
 }
 
-static inline std::vector<char> read_file(const std::string &filepath) {
-  if (!file_exists(filepath)) throw hpmml::ParsingException("Input file " + filepath + " does not exist");
+static inline std::vector<char> read_file(const std::string &filepath)
+{
+    if (!file_exists(filepath))
+        throw hpmml::ParsingException("Input file " + filepath + " does not exist");
 
-  //if (zipped) return read_zip(filepath);
+    // if (zipped) return read_zip(filepath);
 
-  return read_xml(filepath);
+    return read_xml(filepath);
 }
 
 template <class T>
-inline std::string format_num(const T &value) {
-  std::stringstream sstr_value;
-  std::string str_value;
-  std::stringstream res;
-  sstr_value.precision(std::numeric_limits<T>::max_digits10);
-  sstr_value << value;
-  str_value = sstr_value.str();
-  if (str_value.find("e") != std::string::npos) return str_value;
-  std::vector<std::string> parts = split(str_value, ".");
+inline std::string format_num(const T &value)
+{
+    std::stringstream sstr_value;
+    std::string str_value;
+    std::stringstream res;
+    sstr_value.precision(std::numeric_limits<T>::max_digits10);
+    sstr_value << value;
+    str_value = sstr_value.str();
+    if (str_value.find("e") != std::string::npos)
+        return str_value;
+    std::vector<std::string> parts = split(str_value, ".");
 
-  std::reverse(parts[0].begin(), parts[0].end());
-  for (auto i = 0u; i < parts[0].size(); i++) {
-    if (i != 0 && i % 3 == 0) res << ",";
+    std::reverse(parts[0].begin(), parts[0].end());
+    for (auto i = 0u; i < parts[0].size(); i++)
+    {
+        if (i != 0 && i % 3 == 0)
+            res << ",";
 
-    res << parts[0][i];
-  }
+        res << parts[0][i];
+    }
 
-  std::string res_str = res.str();
-  std::reverse(res_str.begin(), res_str.end());
-  return res_str + (parts.size() > 1 ? "." + (parts[1].size() > 3 ? parts[1].substr(0, 3) : parts[1]) : "");
+    std::string res_str = res.str();
+    std::reverse(res_str.begin(), res_str.end());
+    return res_str + (parts.size() > 1 ? "." + (parts[1].size() > 3 ? parts[1].substr(0, 3) : parts[1]) : "");
 }
 
-inline std::string format_int(const int &value) {
-  std::stringstream sstr_value;
-  std::string str_value;
-  std::stringstream res;
-  sstr_value.precision(std::numeric_limits<int>::max_digits10);
-  sstr_value << value;
-  str_value = sstr_value.str();
-  if (str_value.find("e") != std::string::npos) return str_value;
+inline std::string format_int(const int &value)
+{
+    std::stringstream sstr_value;
+    std::string str_value;
+    std::stringstream res;
+    sstr_value.precision(std::numeric_limits<int>::max_digits10);
+    sstr_value << value;
+    str_value = sstr_value.str();
+    if (str_value.find("e") != std::string::npos)
+        return str_value;
 
-  std::reverse(str_value.begin(), str_value.end());
-  for (auto i = 0u; i < str_value.size(); i++) {
-    if (i != 0 && i % 3 == 0) res << ",";
+    std::reverse(str_value.begin(), str_value.end());
+    for (auto i = 0u; i < str_value.size(); i++)
+    {
+        if (i != 0 && i % 3 == 0)
+            res << ",";
 
-    res << str_value[i];
-  }
+        res << str_value[i];
+    }
 
-  std::string res_str = res.str();
-  std::reverse(res_str.begin(), res_str.end());
-  return res_str;
+    std::string res_str = res.str();
+    std::reverse(res_str.begin(), res_str.end());
+    return res_str;
 }
 
-//template <typename T, typename... Args>
-//inline std::unique_ptr<T> make_unique(Args &&... args) {
-//  return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-//}
-//}@
+// template <typename T, typename... Args>
+// inline std::unique_ptr<T> make_unique(Args &&... args) {
+//   return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+// }
+// }@
 #endif
